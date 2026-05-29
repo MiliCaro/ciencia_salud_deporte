@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mujeres en Ciencia, Salud y Deporte · Cumbre Global WGH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16130f;
+    --paper:#f4efe6;
+    --paper-2:#ece4d6;
+    --coral:#e0533d;
+    --coral-deep:#b83a27;
+    --plum:#4b2d4f;
+    --gold:#c9923a;
+    --teal:#1f6f6b;
+    --line:rgba(22,19,15,.14);
+    --shadow:0 24px 60px -28px rgba(22,19,15,.45);
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .serif{font-family:'Fraunces',serif}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--coral);color:var(--paper)}
+
+  /* grain overlay */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;background:rgba(244,239,230,.85);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--coral)}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:.84rem;font-weight:500;letter-spacing:.02em}
+  .nav-links a{opacity:.72;transition:opacity .2s}
+  .nav-links a:hover{opacity:1}
+  .nav-cta{background:var(--ink);color:var(--paper)!important;padding:10px 20px;border-radius:40px;font-weight:600;opacity:1!important;transition:transform .2s}
+  .nav-cta:hover{transform:translateY(-2px)}
+  .burger{display:none;font-size:1.5rem;cursor:pointer}
+  @media(max-width:860px){.nav-links{display:none}.burger{display:block}}
+
+  /* HERO */
+  header.hero{position:relative;padding:90px 0 70px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 0%, rgba(224,83,61,.16), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 90%, rgba(75,45,79,.14), transparent 60%);
+  }
+  .hero-inner{position:relative;z-index:2}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:26px}
+  .kicker::before{content:"";width:34px;height:1.5px;background:var(--coral-deep)}
+  h1.title{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(3.1rem,8.5vw,7.2rem);
+    line-height:.94;letter-spacing:-.03em;max-width:14ch;
+  }
+  h1.title em{font-style:italic;color:var(--coral)}
+  .hero-sub{font-size:clamp(1.05rem,2vw,1.4rem);max-width:46ch;margin:30px 0 0;opacity:.82;font-weight:400}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:34px;margin:42px 0 36px;align-items:center}
+  .hero-meta .m{display:flex;flex-direction:column}
+  .hero-meta .m .lbl{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.55;font-weight:600}
+  .hero-meta .m .val{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;margin-top:3px}
+  .hero-meta .sep{width:1px;height:38px;background:var(--line)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:46px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s}
+  .btn-primary{background:var(--coral);color:var(--paper);box-shadow:var(--shadow)}
+  .btn-primary:hover{transform:translateY(-3px)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .arrow{transition:transform .2s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* floating stat card */
+  .float-stats{position:absolute;right:0;top:120px;z-index:1;display:flex;flex-direction:column;gap:16px;max-width:230px}
+  @media(max-width:1080px){.float-stats{display:none}}
+  .stat-card{background:var(--ink);color:var(--paper);padding:22px 24px;border-radius:18px;transform:rotate(2deg);box-shadow:var(--shadow)}
+  .stat-card:nth-child(2){background:var(--plum);transform:rotate(-2deg)}
+  .stat-card .big{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:600;line-height:1}
+  .stat-card .txt{font-size:.78rem;opacity:.8;margin-top:8px}
+
+  /* MARQUEE */
+  .marquee{background:var(--ink);color:var(--paper);padding:18px 0;overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-flex;gap:40px;animation:scroll 26s linear infinite;font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic;align-items:center}
+  .marquee-track span{display:inline-flex;align-items:center;gap:40px}
+  .marquee .star{color:var(--coral);font-style:normal}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SECTION base */
+  section{padding:96px 0;position:relative}
+  .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:18px}
+  h2.sec{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.02;letter-spacing:-.02em;max-width:18ch}
+  h2.sec em{font-style:italic;color:var(--plum)}
+
+  /* MANIFESTO */
+  .manifesto{background:var(--paper-2)}
+  .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  @media(max-width:860px){.manifesto-grid{grid-template-columns:1fr;gap:34px}}
+  .manifesto p{font-size:1.12rem;opacity:.85;margin-bottom:20px}
+  .manifesto .lead{font-family:'Fraunces',serif;font-size:1.5rem;font-style:italic;opacity:1;line-height:1.4}
+  .pull{border-left:3px solid var(--coral);padding-left:22px;margin:8px 0}
+
+  /* PILLARS */
+  .pillars-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:54px}
+  .pillars-head p{max-width:42ch;opacity:.78;font-size:1.02rem}
+  .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+  @media(max-width:980px){.pillar-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.pillar-grid{grid-template-columns:1fr}}
+  .pillar{padding:36px 30px 40px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);position:relative;transition:background .3s;cursor:default}
+  .pillar:hover{background:var(--paper-2)}
+  .pillar .num{font-family:'Fraunces',serif;font-size:.9rem;opacity:.45;font-weight:600}
+  .pillar .icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin:24px 0 18px;color:var(--paper)}
+  .pillar h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;margin-bottom:12px;letter-spacing:-.01em}
+  .pillar p{font-size:.92rem;opacity:.76;line-height:1.5}
+  .pillar .q{margin-top:16px;font-size:.86rem;font-style:italic;font-family:'Fraunces',serif;opacity:.62}
+
+  /* SPEAKERS / FORMAT band */
+  .format{background:var(--ink);color:var(--paper)}
+  .format h2.sec{color:var(--paper)}
+  .format h2.sec em{color:var(--coral)}
+  .fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+  @media(max-width:860px){.fmt-grid{grid-template-columns:1fr}}
+  .fmt-card{border:1px solid rgba(244,239,230,.18);border-radius:18px;padding:30px;transition:border-color .3s,transform .3s}
+  .fmt-card:hover{border-color:var(--coral);transform:translateY(-4px)}
+  .fmt-card .tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .fmt-card h3{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;margin:14px 0 12px}
+  .fmt-card p{font-size:.92rem;opacity:.78}
+
+  /* CTA / FORM */
+  .signup{background:linear-gradient(160deg,var(--plum),#2e1b31);color:var(--paper);position:relative;overflow:hidden}
+  .signup::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(224,83,61,.34),transparent 65%);top:-180px;right:-120px}
+  .signup-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
+  @media(max-width:860px){.signup-grid{grid-template-columns:1fr;gap:40px}}
+  .signup h2.sec{color:var(--paper)}
+  .signup h2.sec em{color:var(--gold)}
+  .signup .lead{font-size:1.1rem;opacity:.85;margin-top:20px;max-width:40ch}
+  .signup .invite{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;opacity:.7;margin-top:24px}
+  form{background:var(--paper);color:var(--ink);border-radius:22px;padding:34px;box-shadow:var(--shadow)}
+  form h3{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;margin-bottom:6px}
+  form .fsub{font-size:.88rem;opacity:.66;margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.6;margin-bottom:7px}
+  .field input,.field select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;font-family:inherit;font-size:.95rem;background:var(--paper);transition:border-color .2s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--coral)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:480px){.field-row{grid-template-columns:1fr}}
+  .submit{width:100%;background:var(--coral);color:var(--paper);border:none;padding:16px;border-radius:46px;font-weight:700;font-size:1rem;cursor:pointer;margin-top:8px;transition:transform .2s}
+  .submit:hover{transform:translateY(-2px)}
+  .form-note{font-size:.74rem;opacity:.55;margin-top:14px;text-align:center}
+  .success{display:none;text-align:center;padding:20px 0}
+  .success.show{display:block}
+  .success .check{width:60px;height:60px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:1.8rem;margin:0 auto 18px}
+  .success h3{margin-bottom:8px}
+
+  /* PARTNERS */
+  .partners{background:var(--paper-2);text-align:center}
+  .partners h2.sec{margin:0 auto}
+  .partners p{max-width:50ch;margin:18px auto 0;opacity:.78}
+  .partner-row{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:46px}
+  .partner-chip{border:1.5px dashed var(--line);border-radius:14px;padding:22px 30px;font-family:'Fraunces',serif;font-weight:600;opacity:.5;font-size:1.05rem}
+  .partner-cta{margin-top:40px}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 36px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;align-items:flex-start}
+  .foot-brand{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;max-width:24ch}
+  .foot-brand em{color:var(--coral);font-style:italic}
+  .foot-links{display:flex;gap:46px;flex-wrap:wrap}
+  .foot-col h4{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-bottom:14px}
+  .foot-col a{display:block;font-size:.92rem;opacity:.78;margin-bottom:9px;transition:opacity .2s}
+  .foot-col a:hover{opacity:1}
+  .foot-bottom{border-top:1px solid rgba(244,239,230,.15);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.8rem;opacity:.6}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot"></span>WGH · Cumbre Global</div>
+    <div class="nav-links">
+      <a href="#manifiesto">El llamado</a>
+      <a href="#ejes">Ejes</a>
+      <a href="#formato">Formato</a>
+      <a href="#aliados">Aliados</a>
+      <a href="#registro" class="nav-cta">Registrar interés</a>
+    </div>
+    <div class="burger" onclick="document.getElementById('registro').scrollIntoView()">☰</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="float-stats">
+    <div class="stat-card">
+      <div class="big">70%</div>
+      <div class="txt">de la fuerza laboral en salud son mujeres; ocupan una minoría del liderazgo.</div>
+    </div>
+    <div class="stat-card">
+      <div class="big">1 de 3</div>
+      <div class="txt">estudios clínicos aún no desagrega resultados por sexo.</div>
+    </div>
+  </div>
+  <div class="wrap hero-inner">
+    <span class="kicker">Buenos Aires · 2027 · Una convocatoria de Women in Global Health</span>
+    <h1 class="title">Mujeres en <em>ciencia, salud y deporte</em></h1>
+    <p class="hero-sub">Una cumbre multisectorial sobre las mujeres que sostienen los sistemas —en la ciencia, la salud, el deporte y el liderazgo— y siguen sin verse, sin contarse y sin decidir.</p>
+    <div class="hero-meta">
+      <div class="m"><span class="lbl">Cuándo</span><span class="val">Marzo 2027</span></div>
+      <div class="sep"></div>
+      <div class="m"><span class="lbl">Dónde</span><span class="val">Buenos Aires, AR</span></div>
+      <div class="sep"></div>
+      <div class="m"><span class="lbl">Formato</span><span class="val">1 día · híbrido</span></div>
+    </div>
+    <div class="cta-row">
+      <a href="#registro" class="btn btn-primary">Registrar mi interés <span class="arrow">→</span></a>
+      <a href="#manifiesto" class="btn btn-ghost">Por qué importa</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Salud <span class="star">✦</span> Deporte <span class="star">✦</span> Ciencia <span class="star">✦</span> Liderazgo <span class="star">✦</span> Política pública <span class="star">✦</span> Equidad <span class="star">✦</span></span>
+    <span>Salud <span class="star">✦</span> Deporte <span class="star">✦</span> Ciencia <span class="star">✦</span> Liderazgo <span class="star">✦</span> Política pública <span class="star">✦</span> Equidad <span class="star">✦</span></span>
+  </div>
+</div>
+
+<section class="manifesto" id="manifiesto">
+  <div class="wrap manifesto-grid reveal">
+    <div>
+      <div class="eyebrow">El llamado</div>
+      <h2 class="sec">Lo que no se nombra, <em>no se decide</em></h2>
+    </div>
+    <div class="manifesto">
+      <p class="lead pull">Las mujeres invisibles en salud son las mismas que en el deporte, en los laboratorios y en las mesas donde se decide. El patrón se repite: presencia masiva, poder marginal.</p>
+      <p>Esta cumbre reúne a líderes, profesionales, investigadoras y agentes de cambio para explorar qué hace falta para que el avance sea duradero, y no una suma de logros aislados. Se trata de cómo las ideas, políticas y programas que funcionan se incorporan, se adaptan y se sostienen en contextos distintos —generando cambios que no se pueden revertir.</p>
+      <p>No es una cumbre de grandes ideas sueltas. Las delegadas se van con conocimientos, modelos y enfoques que pueden llevar a su organización, su comunidad o su país, junto a una red que ayuda a hacer el progreso imparable.</p>
+      <p>Es una invitación a construir comunidad. El momento es ahora.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ejes">
+  <div class="wrap">
+    <div class="pillars-head reveal">
+      <div>
+        <div class="eyebrow">Cuatro ejes</div>
+        <h2 class="sec">Donde la invisibilidad <em>se vuelve estructura</em></h2>
+      </div>
+      <p>Elegimos estos ejes porque sabemos —por nuestra red global— que es ahí donde hay más hambre de conocimiento y aprendizaje práctico. El hilo que los conecta: hacer que el avance dure.</p>
+    </div>
+    <div class="pillar-grid reveal">
+      <div class="pillar">
+        <span class="num">01</span>
+        <div class="icon" style="background:var(--coral)">＋</div>
+        <h3>Salud</h3>
+        <p>Datos desagregados, modelos de cuidado y liderazgo clínico. De la mujer como paciente promedio invisible a sujeto pleno de la evidencia y la decisión.</p>
+        <p class="q">¿Cómo se incorpora la equidad en cómo operan los sistemas, no solo en lo que declaran?</p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <div class="icon" style="background:var(--teal)">◎</div>
+        <h3>Deporte</h3>
+        <p>Visibilidad cotidiana, inversión sostenida y participación que se mantiene. El deporte como espejo y palanca de la equidad en salud.</p>
+        <p class="q">¿Cómo se construye presencia diaria, y no solo momentos de atención?</p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <div class="icon" style="background:var(--gold)">✸</div>
+        <h3>Ciencia</h3>
+        <p>De pilotos y prototipos a práctica cotidiana. Investigación que incluye, financia y reconoce a las mujeres que la producen.</p>
+        <p class="q">¿Cómo se vuelve la innovación parte del trabajo, y no un experimento aislado?</p>
+      </div>
+      <div class="pillar">
+        <span class="num">04</span>
+        <div class="icon" style="background:var(--plum)">▲</div>
+        <h3>Liderazgo</h3>
+        <p>Gobernanza, rendición de cuentas y decisión. Que el avance viva en las instituciones, no solo en campeonas individuales.</p>
+        <p class="q">¿Cómo se incrusta el liderazgo en culturas y sistemas que no se pueden revertir?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="format" id="formato">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--coral)">La jornada</div>
+      <h2 class="sec">Un día para pasar <em>del diagnóstico a la acción</em></h2>
+    </div>
+    <div class="fmt-grid reveal">
+      <div class="fmt-card">
+        <span class="tag">Escenario principal</span>
+        <h3>Conversaciones que marcan agenda</h3>
+        <p>Voces influyentes de la salud, el deporte, la ciencia y la política desafían supuestos y definen qué viene después. No grandes ideas sueltas: responsabilidades concretas y quién las sostiene.</p>
+      </div>
+      <div class="fmt-card">
+        <span class="tag">Sesiones de cambio</span>
+        <h3>Del decir al hacer</h3>
+        <p>Talleres y formatos colaborativos diseñados alrededor de los cuatro ejes. Qué tiene que cambiar para que el progreso se sostenga —y cómo se adapta a cada contexto y realidad local.</p>
+      </div>
+      <div class="fmt-card">
+        <span class="tag">Diálogo regional</span>
+        <h3>Lo global, en clave local</h3>
+        <p>América Latina, y el mundo, en diálogo. No hay un único camino: las delegadas comparten lo que funciona y lo adaptan a sus sistemas, recursos y comunidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="registro">
+  <div class="wrap signup-grid">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--gold)">Sumate primero</div>
+      <h2 class="sec">Registrá tu <em>interés</em></h2>
+      <p class="lead">Sé de las primeras en recibir el programa, la apertura de inscripciones y las convocatorias de speakers y aliados. Sin compromiso.</p>
+      <p class="invite">No es una lista. Es el principio de una comunidad.</p>
+    </div>
+    <div class="reveal">
+      <form id="interestForm" onsubmit="return handleSubmit(event)">
+        <div id="formBody">
+          <h3>Quiero estar adentro</h3>
+          <p class="fsub">Te escribimos solo cuando hay algo que vale la pena.</p>
+          <div class="field-row">
+            <div class="field">
+              <label>Nombre</label>
+              <input type="text" name="nombre" required placeholder="Tu nombre">
+            </div>
+            <div class="field">
+              <label>Apellido</label>
+              <input type="text" name="apellido" required placeholder="Tu apellido">
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>País</label>
+              <input type="text" name="pais" placeholder="Argentina" value="Argentina">
+            </div>
+            <div class="field">
+              <label>Sector</label>
+              <select name="sector">
+                <option>Salud</option>
+                <option>Deporte</option>
+                <option>Ciencia / Academia</option>
+                <option>Liderazgo / Sector público</option>
+                <option>Sector privado / Inversión</option>
+                <option>Sociedad civil / ONG</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Me interesa participar como</label>
+            <select name="rol">
+              <option>Delegada / Asistente</option>
+              <option>Speaker / Panelista</option>
+              <option>Aliado / Sponsor</option>
+              <option>Medios / Prensa</option>
+              <option>Voluntaria</option>
+            </select>
+          </div>
+          <button type="submit" class="submit">Registrar mi interés →</button>
+          <p class="form-note">Al registrarte aceptás recibir novedades de la cumbre. Podés darte de baja cuando quieras.</p>
+        </div>
+        <div class="success" id="success">
+          <div class="check">✓</div>
+          <h3 class="serif">¡Listo! Quedaste adentro.</h3>
+          <p style="opacity:.7;font-size:.95rem">Te vamos a escribir con el programa y la apertura de inscripciones. Gracias por sumarte al llamado.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="partners" id="aliados">
+  <div class="wrap reveal">
+    <div class="eyebrow">Aliados y sponsors</div>
+    <h2 class="sec">Esto no se construye solas</h2>
+    <p>La cumbre se sostiene con organizaciones que entienden que la equidad en salud, deporte y liderazgo es una agenda compartida. Sumate como aliado fundador.</p>
+    <div class="partner-row">
+      <div class="partner-chip">Tu organización</div>
+      <div class="partner-chip">aquí</div>
+      <div class="partner-chip">+</div>
+    </div>
+    <div class="partner-cta">
+      <a href="#registro" class="btn btn-ghost">Quiero ser aliado fundador →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">Women in Global Health · <em>Mujeres en Ciencia, Salud y Deporte</em></div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Cumbre</h4>
+          <a href="#manifiesto">El llamado</a>
+          <a href="#ejes">Ejes</a>
+          <a href="#formato">Formato</a>
+          <a href="#registro">Registro</a>
+        </div>
+        <div class="foot-col">
+          <h4>Sumate</h4>
+          <a href="#registro">Registrar interés</a>
+          <a href="#registro">Ser speaker</a>
+          <a href="#aliados">Ser aliado</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contacto</h4>
+          <a href="#">Prensa</a>
+          <a href="#">Consultas</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Women in Global Health Argentina</span>
+      <span>Buenos Aires · Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('formBody').style.display='none';
+    document.getElementById('success').classList.add('show');
+    return false;
+  }
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
